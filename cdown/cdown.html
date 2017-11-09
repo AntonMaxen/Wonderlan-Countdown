@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+p {
+  text-align: center;
+  padding:0;
+  margin:0;
+  font-family: Norse;
+  font-size: 5vw;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 2px;
+   color:#B65645;
+}
+.lmao
+{
+color:white;
+-webkit-text-stroke-color: black;
+-webkit-text-stroke-width: 2px;
+
+}
+#big
+{
+font-size: 57vw;
+color:#ad0000;
+-webkit-text-stroke-color: #2b2b2b;
+-webkit-text-stroke-width: 4px;
+}
+#plez
+{
+font-size: 10vw;
+}
+}
+@font-face 
+{ 
+font-family: Norse; src: url('Norse.otf'); 
+} 
+@font-face 
+{ 
+font-family: Norse; font-weight: bold; src: url('Norse-Bold.otf');
+}
+body
+{
+background: url(pizza.png) no-repeat center fixed; 
+background-size: cover;
+margin:0;
+padding:0;
+}
+.cont
+{
+  background-color:rgba(255, 255, 255, 0.5);
+  border: solid black 1px;
+  margin 0 auto;
+}
+
+
+</style>
+</head>
+<body>
+<div class="cont">
+<p id="cdown"></p>
+</div>
+<script>
+var countDownDate = new Date("Nov 10, 2017 13:00:00").getTime();
+var x = setInterval(function() 
+	{
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	
+	
+	if(days <= 0 && hours <= 0 && minutes <= 0)
+	{
+	document.getElementById("cdown").innerHTML = "<p class='lmao'>Wonderlan Countdown</p>" + seconds + "s ";
+	}
+	else if(days <= 0 && hours <= 0)
+	{
+	document.getElementById("cdown").innerHTML = "<p class='lmao'>Wonderlan Countdown</p>" + minutes + "m " + seconds + "s ";
+	}
+	else if (days <= 0)
+	{
+	document.getElementById("cdown").innerHTML = "<p class='lmao'>Wonderlan Countdown</p>" + hours + "h "
+    + minutes + "m " + seconds + "s ";
+	}
+	else
+	{
+    document.getElementById("cdown").innerHTML = "<p class='lmao'>Wonderlan Countdown</p>" + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+	}
+	
+	if(days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 10 && seconds >= 0)
+	{
+		//setInterval(change, 1000);
+		document.getElementById("cdown").innerHTML = "<p id='big'>" + seconds + "</p>";
+	}
+    if (distance <= 0) {
+        clearInterval(x);
+        document.getElementById("cdown").innerHTML = "<p id='plez'>Välkommen till Wonderlan!</p>";
+		setTimeout(redi, 20000);
+		
+	}
+	}, 1000);
+	function redi()
+	{
+		window.location.replace("https://slide.mammaskallare.se/");
+	}
+	/*
+	var i = 0;
+	function change() {
+	var doc = document.getElementById("big");
+	var color = ["#41FF00", "#73FF00", "#98FF00", "#BFFF00", "#F1FF00", "#FFFC00", "#FFE000", "#FFA201", "#FF6402", "#FF2B03", "#FF0104"];
+	doc.style.color = color[i];
+	i = (i + 1) % color.length;
+	}
+	*/
+
+</script>
+</body>
+</html>
